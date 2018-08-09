@@ -4,6 +4,7 @@ import { TreeWithDetailRenderer } from '@jsonforms/material-tree-renderer';
 import { getData, getSchema, getUiSchema } from '@jsonforms/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import EditorBar from './editor/app-bar/EditorBar';
+import * as _ from 'lodash';
 
 const theme = createMuiTheme({
   palette: {
@@ -50,6 +51,12 @@ interface AppProps {
 
 class App extends React.Component<AppProps, {}> {
 
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(this.props.rootData, prevProps.rootData)) {
+      this.props.saveable.dirty = true;
+    }
+  }
+
   render() {
     const { filterPredicate, labelProvider, imageProvider,
             rootData, uischema, schema } = this.props;
@@ -72,9 +79,6 @@ class App extends React.Component<AppProps, {}> {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if (!ownProps.saveable.dirty) {
-    ownProps.saveable.dirty = true;
-  }
   return {
     uischema: getUiSchema(state),
     schema: getSchema(state),

@@ -12,6 +12,7 @@ import withMobileDialog from '@material-ui/core/withMobileDialog';
 import { getData, getUiSchema } from '@jsonforms/core';
 import PreviewDialog from './PreviewDialog';
 import { getModelSchema, setModelSchema } from '../../../reducers';
+import * as _ from 'lodash';
 
 const styles: StyleRulesCallback<'textarea'> = () => ({
   textarea: {
@@ -55,6 +56,14 @@ class ModelSchemaDialog extends
         open: false
       }
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(this.props.modelSchema, prevProps.modelSchema)) {
+      this.setState({
+        modelSchema: this.props.modelSchema
+      });
+    }
   }
 
   handleChange = event => {

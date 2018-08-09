@@ -1,6 +1,3 @@
-import { injectable } from "inversify";
-import { FrontendApplication } from '@theia/core/lib/browser';
-import { SelectionService, ResourceProvider } from '@theia/core/lib/common';
 import { combineReducers, createStore, Store } from 'redux';
 import { imageProvider, labelProvider, modelMapping } from './config';
 import { uiMetaSchema } from './models/ui-metaschema';
@@ -17,9 +14,6 @@ import {
   setContainerProperties,
   treeWithDetailReducer
 } from '@jsonforms/material-tree-renderer';
-import {
-  TreeEditorOpenHandler
-} from 'theia-tree-editor-extension/lib/browser/theia-tree-editor-open-handler';
 import * as JsonRefs from 'json-refs';
 import App from './App';
 import { defaultProps } from "recompose";
@@ -31,7 +25,7 @@ import ExpectedValueField, {
 } from './editor/util/ExpectedValueField';
 
 interface LabelDefinition {
-  /** A constant label value displayed for every object for which this label definition applies. */
+  /** A constant label value d*isplayed for every object for which this label definition applies. */
   constant?: string;
   /** The property name that is used to get a variable part of an object's label. */
   property?: string;
@@ -89,7 +83,7 @@ const calculateLabel =
 const imageGetter = (schemaId: string) =>
   !_.isEmpty(imageProvider) ? `icon ${imageProvider[schemaId]}` : '';
 
-const initStore = async() => {
+export const initStore = async() => {
   const uischema = {
     'type': 'MasterDetailLayout',
     'scope': '#'
@@ -147,19 +141,10 @@ const initStore = async() => {
       });
 };
 
-const CoffeeApp = defaultProps(
+export const CoffeeApp = defaultProps(
   {
     'filterPredicate': filterPredicate,
     'labelProvider': calculateLabel,
     'imageProvider': imageGetter
   }
 )(App);
-
-@injectable()
-export class UiSchemaEditor extends TreeEditorOpenHandler {
-  constructor(app: FrontendApplication,
-              selectionService: SelectionService,
-              resourceProvider: ResourceProvider) {
-    super(app, selectionService, resourceProvider, initStore(), CoffeeApp);
-  }
-}
