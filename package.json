@@ -9,6 +9,8 @@
     "lerna": "2.4.0"
   },
   "workspaces": [
-    "uischema-editor-extension", "browser-app", "electron-app"
+    "uischema-editor-extension",
+    "browser-app",
+    "electron-app"
   ]
 }

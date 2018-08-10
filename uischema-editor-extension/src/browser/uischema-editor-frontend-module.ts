@@ -8,22 +8,15 @@ import {
   MenuContribution,
   ResourceProvider
 } from "@theia/core/lib/common";
-import {
-  UISchemaEditorContribution
-} from './uischema-editor-contribution';
-import { TreeEditorWidget, TreeEditorWidgetOptions } from './theia-tree-editor-widget';
-import {
-  WidgetFactory,
-  OpenHandler
-} from '@theia/core/lib/browser';
+import { TreeEditorWidget, TreeEditorWidgetOptions } from 'theia-tree-editor/lib/browser';
+import { WidgetFactory } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
+import { UISchemaEditorCommandContribution } from './uischema-editor-contribution';
 import { CoffeeApp, initStore } from './uischema-editor';
 
 import '../../src/browser/style/index.css';
 
 export default new ContainerModule(bind => {
-
-  bind(TreeEditorWidget).toSelf();
   // pass constructor arguments to the constructor and resolve these arguments
   bind<WidgetFactory>(WidgetFactory).toDynamicValue(ctx => ({
     id: 'theia-tree-editor',
@@ -38,9 +31,9 @@ export default new ContainerModule(bind => {
     }
   }));
 
-  // value is cached
-  bind(UISchemaEditorContribution).toSelf().inSingletonScope();
-  [CommandContribution, MenuContribution, OpenHandler].forEach(serviceIdentifier =>
-    bind(serviceIdentifier).toService(UISchemaEditorContribution)
-  );
+  /*[CommandContribution, MenuContribution].forEach(serviceIdentifier =>
+    bind(serviceIdentifier).toService(UISchemaEditorCommandContribution)
+  );*/
+  bind(CommandContribution).to(UISchemaEditorCommandContribution);
+  bind(MenuContribution).to(UISchemaEditorCommandContribution);
 });
