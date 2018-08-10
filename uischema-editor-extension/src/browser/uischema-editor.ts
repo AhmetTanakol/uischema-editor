@@ -141,7 +141,7 @@ export const initStore = async() => {
       });
 };
 
-export const CoffeeApp = defaultProps(
+export const UISchemaApp = defaultProps(
   {
     'filterPredicate': filterPredicate,
     'labelProvider': calculateLabel,
