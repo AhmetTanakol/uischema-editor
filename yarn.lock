@@ -8170,9 +8170,9 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-"theia-tree-editor@https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.3":
-  version "0.0.3"
-  resolved "https://github.com/AhmetTanakol/theia-tree-editor.git#a6c619e68326e7d59695bd3e22503906d161ccd6"
+"theia-tree-editor@https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.4":
+  version "0.0.4"
+  resolved "https://github.com/AhmetTanakol/theia-tree-editor.git#cb9affeb0ffd1679bc461df8550aaf1ae6c9a88c"
   dependencies:
     "@jsonforms/core" "^2.0.6"
     "@theia/core" latest

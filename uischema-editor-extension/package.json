@@ -16,13 +16,13 @@
     "@material-ui/icons": "^1.0.0",
     "@theia/core": "latest",
     "json-refs": "^3.0.4",
-    "material-ui-pickers": "1.0.0-rc.9",
     "lodash": "latest",
+    "material-ui-pickers": "1.0.0-rc.9",
     "react": "^16.4.0",
     "react-redux": "^4.4.9",
     "recompose": "^0.27.1",
     "redux": "^3.7.2",
-    "theia-tree-editor": "https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.3"
+    "theia-tree-editor": "https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.4"
   },
   "devDependencies": {
     "rimraf": "latest",

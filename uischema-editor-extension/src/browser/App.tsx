@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { TreeWithDetailRenderer } from '@jsonforms/material-tree-renderer';
 import { getData, getSchema, getUiSchema } from '@jsonforms/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import EditorBar from './editor/app-bar/EditorBar';
 import * as _ from 'lodash';
 
 const theme = createMuiTheme({
@@ -59,12 +58,11 @@ class App extends React.Component<AppProps, {}> {
 
   render() {
     const { filterPredicate, labelProvider, imageProvider,
-            rootData, uischema, schema } = this.props;
+            uischema, schema } = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
         <div>
-          <EditorBar schema={schema} rootData={rootData}/>
           <TreeWithDetailRenderer
             uischema={uischema}
             schema={schema}

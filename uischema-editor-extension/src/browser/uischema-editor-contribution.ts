@@ -73,7 +73,7 @@ export class UISchemaEditorCommandContribution implements CommandContribution, M
   protected async executeModelSchemaUpload(modelSchema: Object): Promise<void> {
     const widget = this.retrieveWidget('theia-tree-editor');
     if (widget !== undefined) {
-      widget.uploadModelSchema(modelSchema);
+      //widget.uploadModelSchema(modelSchema);
       this.messageService.info('Model Schema Upload completed');
     } else {
       this.messageService.error('Editor Not Found');

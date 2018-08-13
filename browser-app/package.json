@@ -16,7 +16,7 @@
     "@theia/terminal": "latest",
     "@theia/typescript": "latest",
     "@theia/workspace": "latest",
-    "theia-tree-editor": "https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.3",
+    "theia-tree-editor": "https://github.com/AhmetTanakol/theia-tree-editor.git#v0.0.4",
     "uischema-editor-extension": "1.0.0"
   },
   "devDependencies": {
